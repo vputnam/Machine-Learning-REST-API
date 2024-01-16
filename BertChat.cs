@@ -30,21 +30,13 @@ namespace MachineLearningFunctions
             name = name ?? data?.name;
 
             // Get path to model to create inference session.
-            var modelPath = "bert_model.onnx";
+            var modelPath = Environment.GetEnvironmentVariable("MODEL_PATH");
+            var sentence = "{\"question\": \"Where is Bob Dylan From?\", \"context\": \"Bob Dylan is from Duluth, Minnesota and is an American singer-songwriter\"}";
 
-            BertProcessor bertProcessor = new BertProcessor();
-            BertInput tokenizer = bertProcessor.BertTokenize(data);
+            BertProcessor bertProcessor = new BertProcessor(modelPath);
+            BertInput bertInput = bertProcessor.BertTokenize(sentence);
 
-            var runOptions = new RunOptions();
-            var session = new InferenceSession(modelPath);
-
-            Dictionary<string, OrtValue> inputs = bertProcessor.BertCreateInputs(tokenizer, runOptions, session, modelPath);
-
-            var output = session.Run(runOptions, inputs, session.OutputNames);
-
-            string responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Soon to be calling Bert model."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
+            var responseMessage = bertProcessor.BertPostProcessor(bertInput);
 
             return new OkObjectResult(responseMessage);
         }

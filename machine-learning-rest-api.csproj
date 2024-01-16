@@ -5,6 +5,10 @@
     <RootNamespace>machine_learning_rest_api</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="BERTTokenizers" Version="1.1.0" />
+    <PackageReference Include="Microsoft.ML" Version="3.0.0" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.16.0" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="1.16.0" />
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.2.0" />
   </ItemGroup>
   <ItemGroup>

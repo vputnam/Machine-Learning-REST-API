@@ -4,6 +4,9 @@
 # Jupyter checkpoints
 Models/.ipynb_checkpoints
 
+Exported model
+bert_model.onnx
+
 # Azure Functions localsettings file
 local.settings.json
 

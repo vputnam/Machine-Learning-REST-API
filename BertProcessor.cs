@@ -12,9 +12,9 @@ namespace MachineLearningFunctions
     public class BertProcessor
     {
 
-        public BertUncasedLargeTokenizer tokenizer = new BertUncasedLargeTokenizer();
-        public List<(string Token, int VocabularyIndex, long SegmentIndex)> tokens;
-        public RunOptions runOptions = new RunOptions();
+        private BertUncasedLargeTokenizer tokenizer = new BertUncasedLargeTokenizer();
+        private List<(string Token, int VocabularyIndex, long SegmentIndex)> tokens;
+        private RunOptions runOptions = new RunOptions();
         public InferenceSession session;
         public BertProcessor(String modelPath)
         {
@@ -80,7 +80,7 @@ namespace MachineLearningFunctions
             return String.Join(" ", predictedTokens);
         }
 
-        public int GetMaxValueIndex(ReadOnlySpan<float> span)
+        private int GetMaxValueIndex(ReadOnlySpan<float> span)
         {
             float maxVal = span[0];
             int maxIndex = 0;
@@ -95,7 +95,7 @@ namespace MachineLearningFunctions
             }
             return maxIndex;
         }
-        
+
     }
 
 }

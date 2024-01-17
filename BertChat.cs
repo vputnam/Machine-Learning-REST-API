@@ -23,18 +23,11 @@ namespace MachineLearningFunctions
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
 
-            string name = req.Query["name"];
-
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
-
-            // Get path to model to create inference session.
+            string question = req.Query["question"];
             var modelPath = Environment.GetEnvironmentVariable("MODEL_PATH");
-            var sentence = "{\"question\": \"Where is Bob Dylan From?\", \"context\": \"Bob Dylan is from Duluth, Minnesota and is an American singer-songwriter\"}";
 
             BertProcessor bertProcessor = new BertProcessor(modelPath);
-            BertInput bertInput = bertProcessor.BertTokenize(sentence);
+            BertInput bertInput = bertProcessor.BertTokenize(question);
 
             var responseMessage = bertProcessor.BertPostProcessor(bertInput);
 

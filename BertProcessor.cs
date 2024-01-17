@@ -28,7 +28,6 @@ namespace MachineLearningFunctions
 
             // Encode the sentence and pass in the count of the tokens in the sentence.
             var encoded = tokenizer.Encode(tokens.Count(), sentence);
-            // Console.WriteLine(String.Join(" ", encoded));
 
             // Break out encoding to InputIds, AttentionMask and TypeIds from list of (input_id, attention_mask, type_id).
             var bertInput = new BertInput()

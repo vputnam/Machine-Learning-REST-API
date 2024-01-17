@@ -24,8 +24,9 @@ This code is meant to be built upon to have additional HTTP endpoints that commu
 Above the question can be anything. An example question is already added: I used to live in Vancouver BC in 2019. Where did I live four years ago?
 
 ## BERT 
+*Bidirectional Encoder Representations from Transformers (BERT) is a language model based on the transformer architecture, notable for its dramatic improvement over previous state of the art models.* [Wiki](https://en.wikipedia.org/wiki/BERT_(language_model))
 
-## Azure Function App 
+I chose this model primarily because I wanted to learn more about it and I thought an API would be a great way to interact with the [huggingface library](https://huggingface.co/docs/transformers/model_doc/bert). 
 
 ## Onnx
 *ONNX (Open Neural Network Exchange) is an open format for representing machine learning models. It allows for interoperability between different deep-learning frameworks and tools.* [Source](https://neptune.ai/blog/saving-trained-model-in-python)

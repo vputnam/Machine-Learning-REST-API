@@ -15,7 +15,7 @@ namespace MachineLearningFunctions
         private BertUncasedLargeTokenizer tokenizer = new BertUncasedLargeTokenizer();
         private List<(string Token, int VocabularyIndex, long SegmentIndex)> tokens;
         private RunOptions runOptions = new RunOptions();
-        public InferenceSession session;
+        private InferenceSession session;
         public BertProcessor(String modelPath)
         {
             this.session = new InferenceSession(modelPath);

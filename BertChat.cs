@@ -26,6 +26,11 @@ namespace MachineLearningFunctions
             string question = req.Query["question"];
             var modelPath = Environment.GetEnvironmentVariable("MODEL_PATH");
 
+            // var onnxBlobConnectionString = Environment.GetEnvironmentVariable("BLOB_STORAGE_CONNECTION_STRING");
+            // var onnxBlobContinerName = Environment.GetEnvironmentVariable("BLOB_STORAGE_CONTAINER_NAME");    
+            // BlobStorageManger blobStorageManger = new BlobStorageManger(onnxBlobConnectionString, onnxBlobContinerName);        
+            // await blobStorageManger.UploadONNXBlob(modelPath);
+
             BertProcessor bertProcessor = new BertProcessor(modelPath);
             BertInput bertInput = bertProcessor.BertTokenize(question);
 
